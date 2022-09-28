@@ -1,0 +1,27 @@
+//Responsive
+
+@media (max-width: 899px) {
+  .container-card {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin: 1rem 0;
+    width: 80vw;
+    animation: rotate both 1s .5s ease-in-out;
+  }
+}
+
+@media (min-width: 900px) {
+  .card {
+    margin: 0 1rem;
+
+    &-translate-left {
+      animation: translate-left both .5s .5s ease-in;
+    }
+
+    &-translate-right {
+      animation: translate-right both .5s 1s ease-in;
+    }
+  }
+}
