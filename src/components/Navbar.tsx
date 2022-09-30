@@ -1,7 +1,9 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { StateContext } from '../context/State.context';
 import { Props } from '../interfaces/interfaces';
+import Burger from './Burger';
+import BasicModal from './Modal';
 import { NavLink } from './NavLink';
 
 const Navbar: FC<Partial<Props>> = ({ onChangeCategory }): JSX.Element => {
@@ -9,9 +11,30 @@ const Navbar: FC<Partial<Props>> = ({ onChangeCategory }): JSX.Element => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/projects") setState((state) => ({ ...state, color: "#fff" }))
+    if (location.pathname === "/projects") setState((state) => ({ ...state, color: "#333" }))
     else if (location.pathname === "/contact") setState((state) => ({ ...state, color: "#333" }))
   }, [location.pathname, setState])
+
+  const displayNavLink = () => {
+    return (
+      <>
+        {location.pathname !== '/' && <NavLink id='home' color={state?.color} className="link" to={'/'}>Accueil</NavLink>}
+        <NavLink id='skills'
+          color={state?.color}
+          className={`link ${location.pathname === '/projects' && "active"}`}
+          to={'/projects'}>
+          Competences
+        </NavLink>
+        <NavLink id='contact'
+          color={state?.color}
+          className={`link ${location.pathname === '/contact' && "active"}`}
+          to={'/contact'}>
+          Contact
+        </NavLink>
+      </>
+    )
+  }
+
 
   return (
     <div className='container-nav'>
@@ -40,19 +63,12 @@ const Navbar: FC<Partial<Props>> = ({ onChangeCategory }): JSX.Element => {
         </nav>
       }
       <nav>
-        {location.pathname !== '/' && <NavLink id='home' color={state?.color} className="link" to={'/'}>Accueil</NavLink>}
-        <NavLink id='skills'
-          color={state?.color}
-          className={`link ${location.pathname === '/projects' && "active"}`}
-          to={'/projects'}>
-          Competences
-        </NavLink>
-        <NavLink id='contact'
-          color={state?.color}
-          className={`link ${location.pathname === '/contact' && "active"}`}
-          to={'/contact'}>
-          Contact
-        </NavLink>
+
+        <BasicModal>
+          {displayNavLink()}
+        </BasicModal>
+
+
       </nav>
     </div >
   )

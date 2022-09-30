@@ -16,10 +16,11 @@ export type Props = PropsWithChildren<{
   icon: IconName;
   state: State;
   type: string;
-  datas: any;
+  datas: State[];
   changeAnimation: boolean;
   onChangeCategory?: (e: MouseEvent<HTMLAnchorElement>) => void;
   onHandleClick?: (data: State) => () => void;
+  onOpen?: () => void
 }>
 
 export interface Datas {

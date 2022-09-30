@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Props, State } from '../interfaces/interfaces'
 
 export const Icons: FC<Partial<Props>> = ({ datas, onHandleClick }): JSX.Element => {
+
   return (
 
     <div className="container-icons flex flex-column-between">
@@ -15,7 +16,7 @@ export const Icons: FC<Partial<Props>> = ({ datas, onHandleClick }): JSX.Element
             key={data.icon}
             onClick={() => onHandleClick!(data)}
           >
-            <FontAwesomeIcon className="icon" icon={['fab', data.icon]} />
+            <FontAwesomeIcon icon={['fab', data.icon]} />
           </Link>
         ))
       }

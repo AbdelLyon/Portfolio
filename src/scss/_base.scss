@@ -9,14 +9,23 @@ html {
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Overlock SC', cursive;
   color: var(--text-dark);
   font-size: 1.5rem;
   overflow-y: auto;
 }
 
-h2 {
-  margin: 1rem 0 0 1rem;
+h2,
+h3 {
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+
+p {
+  letter-spacing: .5px;
+  text-align: justify;
+  line-height: 2rem;
 }
 
 ul {
@@ -25,4 +34,12 @@ ul {
 
 a {
   text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  letter-spacing: .5px;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

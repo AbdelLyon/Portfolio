@@ -25,7 +25,6 @@ const Home = (): JSX.Element => {
 
   const handleClick = useCallback((data: State) => {
     setChangeAnimation(false);
-
     setState((state: State) => ({ ...state, isVisible: false }));
 
     const timer = setTimeout(() =>
@@ -53,7 +52,7 @@ const Home = (): JSX.Element => {
       <AnimationPanel changeAnimation={changeAnimation} />
       <header className="container">
         <Navbar onChangeCategory={(e: MouseEvent<HTMLAnchorElement>) => onChangeCategory(e)} />
-        <div className="content flex flex-row-between">
+        <div className="header-skill flex flex-row-between">
           <ul className="list" >
             {state && state.category === 'front-end'
               ? <Icons datas={datas.front} onHandleClick={handleClick} />

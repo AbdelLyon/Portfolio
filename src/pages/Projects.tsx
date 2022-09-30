@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useState } from "react";
 import { Link } from "react-scroll";
 import AnimationPanel from "../components/AnimationPanel";
+import Burger from "../components/Burger";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ProjectList from "../components/ProjectList";
@@ -15,10 +16,10 @@ const Projects = (): JSX.Element => {
     <>
       <div className="container-header flex flex-row-center ">
         <AnimationPanel changeAnimation={false} />
-        <header className="container size-animation">
-          <div className="content-project opacity-animation ">
+        <header className="container size-animation shadow-none">
+          <div className="header-project opacity-animation ">
             <Navbar />
-            <div className="container-skill-project container translateDownFinit-animation" >
+            <div className=" h-100 container translateDownFinit-animation" >
               <h1 > Adipisci qui aliquid tenetur asperiores aliquid tenetur asperiores! </h1>
               <Link
                 className="icon translateDown-animation "

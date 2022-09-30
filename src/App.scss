@@ -1,61 +1,12 @@
 @import './scss/base';
 @import './scss/variables';
+
 @import './scss/mixins';
 @import './scss/animations';
 @import './scss/classes';
+@import './scss/responsive';
 
 // ========================================  variable à definir ========================================
-
-header {
-    width: 75%;
-    height: 75%;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 2px 4px 13px -3px #9696964d;
-    position: relative;
-
-    .container-nav {
-        display: flex;
-        margin-bottom: 4rem;
-
-        nav {
-            &:nth-last-child(2) {
-                flex: 2;
-            }
-
-            .link {
-                margin: 2rem 3rem;
-                font-size: 1.3rem;
-                font-family: 'Overlock SC', cursive;
-                transition: all 0.3s;
-                font-weight: 600;
-                letter-spacing: .5px;
-                padding: .5rem 0;
-                border-bottom: 2px solid transparent;
-                font-weight: bold;
-                display: inline-block;
-
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-        }
-    }
-
-    .content {
-        height: 30rem;
-        padding: 0 3rem;
-    }
-
-    .content-project {
-        display: flex;
-        @include flex(column, center, flex-start);
-        background-image: linear-gradient(#00000038, #00000038), url("https://cdn.pixabay.com/photo/2017/08/01/00/16/apple-2562204_960_720.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-    }
-}
 
 .panel {
     height: 100%;
@@ -66,71 +17,104 @@ header {
     transform: skew(20deg);
 }
 
-
-.circle {
-    height: 26rem;
-    width: 26rem;
-    border-radius: 100%;
+.burger {
+    justify-content: flex-end;
+    width: 100%;
+    padding: 2rem 3rem;
+    display: none;
 }
+
+header {
+    width: 75%;
+    height: 75%;
+    border-radius: 8px;
+    box-shadow: 1px 3px 15px var(--shadow);
+    position: relative;
+    background-color: #fff;
+
+
+
+    .container-nav {
+        display: flex;
+        margin-bottom: 4rem;
+
+        nav {
+            width: 100vw;
+            display: flex;
+            align-items: center;
+
+            &:nth-of-type(2) {
+                flex: 2;
+            }
+
+            .link {
+                margin: 2rem 3rem;
+                padding: .5rem 0;
+                border-bottom: 2px solid transparent;
+                display: inline-block;
+                z-index: 10;
+            }
+        }
+
+    }
+
+    .header-skill {
+        height: 30rem;
+        padding: 0 3rem;
+
+
+        .circle {
+            height: 26rem;
+            width: 26rem;
+            border-radius: 100%;
+        }
+    }
+
+    .header-project {
+        display: flex;
+        @include flex(column, center, flex-start);
+        background-image: linear-gradient(#00000038, #00000038), url("https://cdn.pixabay.com/photo/2017/08/01/00/16/apple-2562204_960_720.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        color: #fff;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+        text-align: center;
+
+        h1 {
+            padding-top: calc((100vh - 335.09px) / 2);
+            max-width: 90%;
+            margin: 2rem auto;
+        }
+
+    }
+
+    .skill {
+        width: 35%;
+        line-height: 1.5rem;
+
+    }
+}
+
 
 .container-icons {
     height: 35rem;
+    padding: 1rem;
 
     .icons-content {
         width: 7rem;
         height: 7rem;
-        box-shadow: 0 0 4px #a0a0a070;
+        box-shadow: 0 0 4px var(--shadow);
         cursor: pointer;
         transition: all 0.3s;
         border-radius: 50%;
         background: #fff;
-        font-size: 2rem;
+        font-size: 2.2rem;
 
         &:hover {
             transform: scale(1.1);
         }
-    }
-}
-
-
-.container-skill-project {
-    height: 100%;
-    font-family: 'Overlock SC', cursive;
-    color: #fff;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    text-align: center;
-    max-width: 90rem;
-
-    h1 {
-        margin-bottom: 2rem;
-        padding-top: calc((100vh - 335.09px) / 2);
-    }
-
-    .icon {
-        font-size: 1.5rem;
-        display: block;
-        cursor: pointer;
-        color: var(--color-react);
-
-    }
-}
-
-.skill {
-    font-family: 'Overlock SC', cursive;
-    width: 35%;
-    line-height: 1.5rem;
-    color: #888888;
-
-    h3 {
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        letter-spacing: .5px;
-        text-align: justify;
-        line-height: 2rem;
     }
 }
 
@@ -140,7 +124,7 @@ main {
         flex-wrap: wrap;
         margin: 20rem 0;
 
-        .skill {
+        .project {
             width: 46%;
 
             img {
@@ -158,6 +142,7 @@ main {
         }
     }
 }
+
 
 
 .form-content {
