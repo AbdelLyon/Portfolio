@@ -1,47 +1,45 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Props } from '../interfaces/interfaces';
-import Burger from './Burger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '0',
-  height: '100%',
-  width: '100%',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: "2rem 3rem",
-  transition: 'all 1s'
-
-};
+import { useCallback, useState } from 'react';
 
 const BasicModal: React.FC<Partial<Props>> = ({ children }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalAnimation, setModalAnimation] = useState('translate-up-burger-animation');
+
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
+  const handleClick = useCallback(() => {
+    setModalAnimation('translate-down-burger-animation')
+    const timer = setTimeout(() => {
+      setModalAnimation('translate-up-burger-animation')
+      handleClose()
+    }, 1000);
+    return () => clearTimeout(timer)
+  }, [])
+
 
   return (
-    <div style={{ width: '100%' }}>
-      <Burger onOpen={handleOpen} />
+    <>
+      <div className="burger icon" onClick={handleOpen} >
+        <FontAwesomeIcon fontSize={'2.2rem'} icon={['fas', "bars-staggered"]} />
+      </div>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="translateRight-animation">
-          <div style={{ display: "flex", width: '100%', justifyContent: "flex-end" }} onClick={handleClose}>
-            <FontAwesomeIcon className='icon' icon={['fas', "xmark"]} />
-
+        <Box className={`modal ${modalAnimation}`}>
+          <div className='icon' style={{ display: "flex", width: '100%', justifyContent: "flex-end" }} onClick={handleClick}>
+            <FontAwesomeIcon fontSize={'2.2rem'} icon={['fas', "xmark"]} />
           </div>
           {children}
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }
 

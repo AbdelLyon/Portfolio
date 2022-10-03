@@ -11,11 +11,11 @@ const AnimationPanel: FC<Partial<Props>> = ({ changeAnimation }): JSX.Element =>
     <>
       <div
         className={`panel ${state?.isVisible && "opacity-animation-reverse"}`}
-        style={{ backgroundColor: location.pathname === '/' ? state?.color : "#c7d1cbda" }}>
+        style={{ backgroundColor: location.pathname === '/' ? state?.color : "#83bdd1" }}>
       </div>
       <div
-        className={`panel ${state?.isVisible ? !changeAnimation && location.pathname === '/' ? "translateLeft-animation" : "height-animation" : ""}`}
-        style={{ backgroundColor: location.pathname === '/' ? state?.color : "#c7d1cbda" }}>
+        className={`panel ${state?.isVisible ? !changeAnimation && location.pathname === '/' ? "translate-left-animation" : "height-animation" : ""}`}
+        style={{ backgroundColor: location.pathname === '/' ? state?.color : "#83bdd1" }}>
       </div>
     </>
   )

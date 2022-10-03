@@ -20,7 +20,15 @@ const Contact = () => {
               <textarea placeholder="Message" rows={5} />
             </div>
             <div className="form-group">
-              <select className='my-1' />
+              <select className='my-1' >
+                <option>Test option</option>
+                <option>Test option</option>
+                <option>Test option</option>
+                <option>Test option</option>
+              </select>
+            </div>
+            <div className="btn-container">
+              <button className='btn btn-primary' type="submit">Envoyer</button>
             </div>
           </form>
         </header>

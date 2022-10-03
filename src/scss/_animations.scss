@@ -4,12 +4,6 @@
   }
 }
 
-@keyframes translate-right {
-  from {
-    transform: translate(40rem);
-  }
-}
-
 @keyframes size {
   to {
     height: 100vh;
@@ -22,15 +16,12 @@
     opacity: 0;
     transform: translateX(-40rem);
   }
-
 }
 
 @keyframes translate-down {
   from {
     transform: translateY(.5rem);
   }
-
-
 }
 
 
@@ -46,21 +37,28 @@
   }
 }
 
-@keyframes scroll {
-  from {
-    display: block;
-
-  }
-
-  to {
-    display: block;
-  }
-}
 
 @keyframes translate-up {
   from {
-    transform: translateY(5rem);
     opacity: 0;
+    transform: translateY(5rem);
+  }
+}
+
+@keyframes translate-up-modal {
+  from {
+    transform: translateY(-70rem);
+  }
+}
+
+@keyframes translate-down-modal {
+  from {
+    transform: translateY(0rem);
+  }
+
+  to {
+    transform: translateY(70rem);
+
   }
 }
 

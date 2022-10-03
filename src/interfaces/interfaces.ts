@@ -1,5 +1,6 @@
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { Dispatch, MouseEvent, PropsWithChildren, SetStateAction } from "react";
+// import { To } from "react-router-dom";
 
 export interface State {
   title: string;
@@ -11,6 +12,9 @@ export interface State {
 }
 
 export type Props = PropsWithChildren<{
+  id: string;
+  to: any;
+  className: string;
   visible: boolean;
   color: string;
   icon: IconName;
